@@ -36,4 +36,10 @@ async def send_verify_notice(ctx):
     )
     await ctx.send(embed=embed, view=VerificationView())
 
+@bot.command()
+@commands.has_permissions(manage_messages=True)
+async def say(ctx, *, message: str):
+    await ctx.message.delete()
+    await ctx.send(message)
+
 bot.run(os.getenv("BOT_TOKEN"))
