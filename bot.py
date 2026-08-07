@@ -36,4 +36,4 @@ async def send_verify_notice(ctx):
     )
     await ctx.send(embed=embed, view=VerificationView())
 
-bot.run(os.getenv("MTUzNTMzOTYxMTA5MjY4NDg2MQ.GXiv2M.j_o5C4sz0fXmD0PAu1hHytQfDGElCcJ1mr1gMI"))
+bot.run(os.getenv("BOT_TOKEN"))
