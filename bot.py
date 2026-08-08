@@ -5,6 +5,13 @@ from discord.ext import commands
 
 
 # =========================
+# SETTINGS
+# =========================
+
+SERVER_ID = 1495636911979757638
+
+
+# =========================
 # BOT SETUP
 # =========================
 
@@ -17,7 +24,7 @@ bot = commands.Bot(
 
 
 # =========================
-# BOT READY
+# SYNC SLASH COMMANDS
 # =========================
 
 @bot.event
@@ -26,8 +33,15 @@ async def on_ready():
     print(f"Bot ID: {bot.user.id}")
 
     try:
-        synced = await bot.tree.sync()
-        print(f"Synced {len(synced)} slash commands.")
+        guild = discord.Object(id=SERVER_ID)
+
+        # Copy the commands to this server
+        bot.tree.copy_global_to(guild=guild)
+
+        # Sync them with Discord
+        synced = await bot.tree.sync(guild=guild)
+
+        print(f"Synced {len(synced)} slash commands to server.")
 
         for command in synced:
             print(f"  /{command.name}")
@@ -71,7 +85,6 @@ async def embed(
     title: str,
     description: str
 ):
-
     embed_message = discord.Embed(
         title=title,
         description=description,
@@ -106,7 +119,6 @@ class MyButton(discord.ui.View):
         interaction: discord.Interaction,
         button: discord.ui.Button
     ):
-
         await interaction.response.send_message(
             "You clicked the button! 👋"
         )
@@ -123,7 +135,6 @@ class MyButton(discord.ui.View):
 async def button(
     interaction: discord.Interaction
 ):
-
     view = MyButton()
 
     await interaction.response.send_message(
