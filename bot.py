@@ -139,7 +139,7 @@ async def button(
     view = MyButton()
 
     await interaction.response.send_message(
-        "You Are Not Verified",
+        "YOU ARE NOT VERIFIED/nYou dont have permission to view this channel",
         view=view
     )
 
