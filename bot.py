@@ -139,7 +139,7 @@ async def button(
     view = MyButton()
 
     await interaction.response.send_message(
-        "Click the button below!",
+        "You Are Not Verified",
         view=view
     )
 
