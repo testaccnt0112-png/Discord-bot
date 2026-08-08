@@ -133,15 +133,16 @@ class MyButton(discord.ui.View):
     name="button",
     description="Send a message with a button"
 )
-async def button(
-    interaction: discord.Interaction
-):
-    view = MyButton()
+async def button_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
+    await interaction.response.send_message(
+        "Message sent!",
+        ephemeral=True
+    )
 
- await interaction.channel.send(
-    "YOU ARE NOT VERIFIED\n\nYou dont have permission to view this channel",
-    view=view
-)
+    await interaction.channel.send(
+        "YOU ARE NOT VERIFIED\n\nYou dont have permission to view this channel",
+        view=view
+    )
 
 
 # =========================
