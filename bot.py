@@ -120,7 +120,8 @@ class MyButton(discord.ui.View):
         button: discord.ui.Button
     ):
         await interaction.response.send_message(
-            "You clicked the button! 👋"
+    "Go to #✅verify and fill out the form",
+    ephemeral=True
         )
 
 
