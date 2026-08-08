@@ -138,12 +138,7 @@ async def button(
 ):
     view = MyButton()
 
-   await interaction.response.send_message(
-    "Message sent!",
-    ephemeral=True
-)
-
-await interaction.channel.send(
+ await interaction.channel.send(
     "YOU ARE NOT VERIFIED\n\nYou dont have permission to view this channel",
     view=view
 )
