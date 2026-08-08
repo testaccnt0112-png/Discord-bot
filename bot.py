@@ -110,8 +110,8 @@ class MyButton(discord.ui.View):
         super().__init__(timeout=None)
 
     @discord.ui.button(
-        label="Click Me",
-        style=discord.ButtonStyle.primary,
+        label="HOW DO I VERIFY ?",
+        style=discord.ButtonStyle.danger,
         custom_id="my_button"
     )
     async def button_callback(
